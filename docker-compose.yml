@@ -6,7 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: deer-flow-backend
+    labels:
+      - traefik.enable=false
     ports:
+      # Exponer sólo internamente en el servidor
       - "127.0.0.1:8001:8000"
     env_file:
       - .env
